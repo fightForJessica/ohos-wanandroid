@@ -1,0 +1,4 @@
+
+export enum LoadingState {
+  NONE, INIT_LOADING, MORE_LOADING, START, SUCCESS, ERROR
+}

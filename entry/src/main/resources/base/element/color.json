@@ -1,0 +1,24 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "global_text",
+      "value": "#FF000000"
+    },
+    {
+      "name": "second_text",
+      "value": "#FFB6B6B6"
+    },
+    {
+      "name": "banner_text_background",
+      "value": "#6A434343"
+    },
+    {
+      "name": "artical_tag_color",
+      "value": "#FF78FFC9"
+    }
+  ]
+}

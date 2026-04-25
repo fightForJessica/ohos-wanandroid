@@ -1,0 +1,24 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "label"
+    },
+    {
+      "name": "artical_page_name",
+      "value": "首页"
+    },
+    {
+      "name": "project_page_name",
+      "value": "项目"
+    }
+  ]
+}
