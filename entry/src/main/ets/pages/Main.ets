@@ -2,6 +2,12 @@ import MainViewModel from '../viewmodel/MainViewModel'
 import { Artical } from '../views/Article'
 import { Project } from '../views/Project'
 
+interface IMainDependency {
+
+  openUrl(url: string): void
+
+}
+
 @Entry
 @Component
 struct Main {

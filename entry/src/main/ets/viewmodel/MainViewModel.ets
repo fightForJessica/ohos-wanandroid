@@ -1,4 +1,4 @@
-import { ArticalResponse, ArticalResponseDetail } from "../model/ArticalData";
+import { ArticalDetail, ArticalResponse } from "../model/ArticalData";
 import { BannerData, BannerResponse } from "../model/BannerData";
 import { LoadingState } from "../model/LoadingState";
 import { MainResposity } from "../resposity/MainResposity";
@@ -14,7 +14,7 @@ export default class MainViewModel {
   @Track bannerDatas: BannerData[] = []
   @Track bannerLoadingState = LoadingState.NONE
 
-  @Track articalDatas: ListDataSource<ArticalResponseDetail>= new ListDataSource()
+  @Track articalDatas: ListDataSource<ArticalDetail>= new ListDataSource()
   @Track articalLoadingState = LoadingState.NONE
   private articalPagePosition = 0 // 游标
 

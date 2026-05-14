@@ -1,13 +1,14 @@
-import { ArticalResponseDetail, ArticalTag } from "../model/ArticalData"
+import { ArticalDetail, ArticalTag } from "../model/ArticalData"
 import { BannerData } from "../model/BannerData"
 import MainViewModel from "../viewmodel/MainViewModel"
-
 
 @Component
 export struct Artical {
 
   @Prop
   viewModel: MainViewModel
+
+
 
   aboutToAppear(): void {
     this.viewModel.fetchBannerData()
@@ -21,7 +22,7 @@ export struct Artical {
           bannerData: this.viewModel.bannerDatas
         })
       }
-      LazyForEach(this.viewModel.articalDatas, (data: ArticalResponseDetail, index: number) => {
+      LazyForEach(this.viewModel.articalDatas, (data: ArticalDetail, index: number) => {
         ListItem() {
           ArticleItem({
             articalDetail: data,
@@ -88,7 +89,7 @@ struct BannerItem {
 
 @Component
 struct ArticleItem {
-  articalDetail: ArticalResponseDetail = new ArticalResponseDetail();
+  articalDetail: ArticalDetail = new ArticalDetail();
   index: number = 0
 
   build() {

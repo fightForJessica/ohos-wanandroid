@@ -8,7 +8,7 @@ export class ArticalResponse {
 
 export class ArticalResponseData {
 	curPage?: number = 0;
-	datas?: ArticalResponseDetail[] = [];
+	datas?: ArticalDetail[] = [];
 	offset?: number = 0;
 	over?: boolean = false;
 	pageCount?: number = 0;
@@ -16,7 +16,7 @@ export class ArticalResponseData {
 	total?: number = 0;
 }
 
-export class ArticalResponseDetail {
+export class ArticalDetail {
 	adminAdd?: boolean = false;
 	apkLink?: string = "";
 	audit?: number = 0;
