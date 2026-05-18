@@ -49,6 +49,9 @@ struct Banner {
             BannerItem({ bannerData: data })
           }, (item: BannerData, index: number) => item.id?.toString())
         }
+        .indicator(false)
+        .autoPlay(true)
+        .loop(true)
         .width("100%")
         .height("100%")
       } else {
@@ -70,7 +73,9 @@ struct BannerItem {
   @Prop bannerData: BannerData
 
   build() {
-    Stack() {
+    Stack({
+      alignContent: Alignment.Bottom
+    }) {
       Image(this.bannerData.imagePath)
         .width("100%")
         .height("100%")
@@ -81,7 +86,6 @@ struct BannerItem {
         .width("100%")
         .background($r("app.color.banner_text_background"))
     }
-    .alignContent(Alignment.Bottom)
     .width("100%")
     .height("100%")
   }
