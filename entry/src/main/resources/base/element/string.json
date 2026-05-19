@@ -19,14 +19,6 @@
     {
       "name": "project_page_name",
       "value": "项目"
-    },
-    {
-      "name": "WebAbility_desc",
-      "value": "description"
-    },
-    {
-      "name": "WebAbility_label",
-      "value": "label"
     }
   ]
 }

@@ -43,6 +43,7 @@ export default class MainViewModel {
       this.articalLoadingState = LoadingState.MORE_LOADING
     } else {
       this.articalLoadingState = LoadingState.INIT_LOADING
+      this.articalPagePosition = 0
     }
     Logger.i("artical data requesting, more: ".concat(more.toString()))
     await this.resposity.fetchArticalData(this.articalPagePosition).then((result: ArticalResponse) => {

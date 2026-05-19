@@ -1,6 +1,6 @@
 {
   "src": [
     "pages/Main",
-    "pages/Index"
+    "pages/WebDetail"
   ]
 }

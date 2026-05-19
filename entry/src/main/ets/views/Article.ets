@@ -1,6 +1,9 @@
 import { ArticalDetail, ArticalTag } from "../model/ArticalData"
 import { BannerData } from "../model/BannerData"
 import MainViewModel from "../viewmodel/MainViewModel"
+import { common } from "@kit.AbilityKit"
+
+export const MAIN_ARTICAL_DETAIL_CLICK = "main_artical_detail_click"
 
 @Component
 export struct Artical {
@@ -8,9 +11,8 @@ export struct Artical {
   @Prop
   viewModel: MainViewModel
 
-
-
   aboutToAppear(): void {
+    // 启动则请求数据
     this.viewModel.fetchBannerData()
     this.viewModel.fetchArticalData(false)
   }
@@ -52,6 +54,9 @@ struct Banner {
         .indicator(false)
         .autoPlay(true)
         .loop(true)
+        .onChange((index: number) => {
+
+        })
         .width("100%")
         .height("100%")
       } else {
@@ -93,9 +98,11 @@ struct BannerItem {
 
 @Component
 struct ArticleItem {
-  articalDetail: ArticalDetail = new ArticalDetail();
+  articalDetail: ArticalDetail = new ArticalDetail()
   index: number = 0
 
+  private context = (this.getUIContext().getHostContext() as common.UIAbilityContext)
+  
   build() {
     Column() {
       Row() {
@@ -138,6 +145,10 @@ struct ArticleItem {
       left: 12, right: 12, top: 6, bottom: 6
     })
     .width("100%")
+    .onClick(() => {
+      // 将事件通过广播发到对应位置处理
+      this.context.eventHub.emit(MAIN_ARTICAL_DETAIL_CLICK, this.articalDetail.link)
+    })
   }
 }
 
