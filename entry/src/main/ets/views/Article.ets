@@ -1,9 +1,8 @@
 import { ArticalDetail, ArticalTag } from "../model/ArticalData"
 import { BannerData } from "../model/BannerData"
+import { OPEN_WEB_DETAIL } from "../pages/Main"
+import Logger from "../utils/Logger"
 import MainViewModel from "../viewmodel/MainViewModel"
-import { common } from "@kit.AbilityKit"
-
-export const MAIN_ARTICAL_DETAIL_CLICK = "main_artical_detail_click"
 
 @Component
 export struct Artical {
@@ -101,7 +100,7 @@ struct ArticleItem {
   articalDetail: ArticalDetail = new ArticalDetail()
   index: number = 0
 
-  private context = (this.getUIContext().getHostContext() as common.UIAbilityContext)
+  private eventHub = this.getUIContext().getHostContext()?.eventHub
   
   build() {
     Column() {
@@ -146,8 +145,8 @@ struct ArticleItem {
     })
     .width("100%")
     .onClick(() => {
-      // 将事件通过广播发到对应位置处理
-      this.context.eventHub.emit(MAIN_ARTICAL_DETAIL_CLICK, this.articalDetail.link)
+      Logger.i("main-artical-detail-click, url is: ".concat(this.articalDetail.link ?? "null"))
+      this.eventHub?.emit(OPEN_WEB_DETAIL, this.articalDetail.link)
     })
   }
 }

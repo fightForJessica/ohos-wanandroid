@@ -1,6 +1,5 @@
 {
   "src": [
-    "pages/Main",
-    "pages/WebDetail"
+    "pages/Main"
   ]
 }

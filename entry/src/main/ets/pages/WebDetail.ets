@@ -1,20 +1,26 @@
-@Entry
+import webview from "@ohos.web.webview"
+
 @Component
-struct WebDetail {
-  @State message: string = 'Hello World';
+export struct WebDetail {
+
+  @Prop url: string
+
+  private controller = new webview.WebviewController()
 
   build() {
-    Row() {
+    NavDestination() {
       Column() {
-        Text(this.message)
-          .fontSize($r('app.float.page_text_font_size'))
-          .fontWeight(FontWeight.Bold)
-          .onClick(() => {
-            this.message = 'Welcome';
-          })
+        Web({
+          src: this.url,
+          controller: this.controller
+        })
+          .width('100%')
+          .height('100%')
       }
       .width('100%')
+      .height('100%')
     }
-    .height('100%')
+    .hideTitleBar(true)
+    .hideToolBar(true)
   }
 }
