@@ -3,6 +3,7 @@ import { BannerData } from "../model/BannerData"
 import { OPEN_WEB_DETAIL } from "../pages/Main"
 import Logger from "../utils/Logger"
 import MainViewModel from "../viewmodel/MainViewModel"
+import { ListBottom } from "./ListBottom"
 
 @Component
 export struct Artical {
@@ -18,11 +19,14 @@ export struct Artical {
 
   build() {
     List() {
+      // banner 部分
       ListItem() {
         Banner({
           bannerData: this.viewModel.bannerDatas
         })
       }
+
+      // 文章内容
       LazyForEach(this.viewModel.articalDatas, (data: ArticalDetail, index: number) => {
         ListItem() {
           ArticleItem({
@@ -31,9 +35,28 @@ export struct Artical {
           })
         }
       })
+
+      // 底部加载更多
+      ListItem() {
+        ListBottom({
+          loadingState: this.viewModel.articalLoadingState,
+          onErrorClick: () => {
+            Logger.i("main-artical-list-bottom, error reload")
+            this.viewModel.reloadArticalData()
+          }
+        })
+      }
     }
     .width("100%")
     .height("100%")
+    .onScrollIndex((start: number, end: number, center: number) => {
+      // 不使用 onReachEnd 的原因是当 list 渲染到最后一个时就会进行回调，没有通过滑动的判断进行回调，回调时机不好控制
+      const dataCount = this.viewModel.articalDatas.totalCount()
+      if (end >= dataCount) {
+        Logger.i(`main-artical-list, reach end and start to loadMore, end: ${end}, articalDatasCount: ${dataCount}`)
+        this.viewModel.fetchArticalData(true)
+      }
+    })
   }
 
 }
@@ -111,7 +134,9 @@ struct ArticleItem {
               right: 6
             })
         }
-        Text(this.articalDetail.author)
+        Text(
+          (this.articalDetail.author?.length ?? 0 > 0) ? this.articalDetail.author : this.articalDetail.shareUser
+        )
           .fontSize(14)
           .fontColor($r("app.color.second_text"))
 

@@ -5,11 +5,11 @@
       "value": "module description"
     },
     {
-      "name": "EntryAbility_desc",
+      "name": "MainUiAbility_desc",
       "value": "description"
     },
     {
-      "name": "EntryAbility_label",
+      "name": "MainUiAbility_label",
       "value": "label"
     },
     {
@@ -19,6 +19,22 @@
     {
       "name": "project_page_name",
       "value": "项目"
+    },
+    {
+      "name": "list_bottom_state_loading",
+      "value": "加载中..."
+    },
+    {
+      "name": "list_bottom_state_success",
+      "value": "加载成功"
+    },
+    {
+      "name": "list_bottom_state_error",
+      "value": "加载失败，请重试"
+    },
+    {
+      "name": "list_bottom_state_finish",
+      "value": "已经加载全部内容了~"
     }
   ]
 }

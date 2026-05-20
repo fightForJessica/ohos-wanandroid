@@ -14,9 +14,9 @@
       {
         "name": "EntryAbility",
         "srcEntry": "./ets/ability/MainUiAbility.ets",
-        "description": "$string:EntryAbility_desc",
+        "description": "$string:MainUiAbility_desc",
         "icon": "$media:layered_image",
-        "label": "$string:EntryAbility_label",
+        "label": "$string:MainUiAbility_label",
         "startWindowIcon": "$media:startIcon",
         "startWindowBackground": "$color:start_window_background",
         "exported": true,
