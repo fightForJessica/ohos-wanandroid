@@ -40,8 +40,9 @@ export default class ListDataSource<T> implements IDataSource {
   }
 
   /** 加载数据 */
-  loadData(item: T[]) {
-    this.originData = item;
+  loadData(items: T[]) {
+    this.originData = []
+    this.addDataList(items)
   }
 
   /** 注册时触发 /注册监听 */

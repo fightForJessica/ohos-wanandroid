@@ -73,9 +73,9 @@ export default class MainViewModel {
       if (details != null && details.length != 0) {
         this.articalLoadingState = LoadingState.SUCCESS
         if (more) {
-          this.articalDatas.loadData(details)
-        } else {
           this.articalDatas.addDataList(details)
+        } else {
+          this.articalDatas.loadData(details)
         }
         Logger.i(`realFetchArticalData success: ${JSON.stringify(result)}`)
       } else {

@@ -34,7 +34,7 @@ export struct Artical {
             index: index
           })
         }
-      })
+      }, (item: ArticalDetail, index: number) => item.id?.toString() ?? index.toString())
 
       // 底部加载更多
       ListItem() {
