@@ -2,7 +2,7 @@ import { ArticalDetail, ArticalTag } from "../model/ArticalData"
 import { BannerData } from "../model/BannerData"
 import { OPEN_WEB_DETAIL } from "../pages/Main"
 import Logger from "../utils/Logger"
-import MainViewModel from "../viewmodel/MainViewModel"
+import { MainViewModel } from "../viewmodel/MainViewModel"
 import { ListBottom } from "./ListBottom"
 
 @Component
@@ -53,7 +53,6 @@ export struct Artical {
       // 不使用 onReachEnd 的原因是当 list 渲染到最后一个时就会进行回调，没有通过滑动的判断进行回调，回调时机不好控制
       const dataCount = this.viewModel.articalDatas.totalCount()
       if (end >= dataCount) {
-        Logger.i(`main-artical-list, reach end and start to loadMore, end: ${end}, articalDatasCount: ${dataCount}`)
         this.viewModel.fetchArticalData(true)
       }
     })

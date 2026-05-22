@@ -1,5 +1,5 @@
 import Logger from '../utils/Logger'
-import MainViewModel from '../viewmodel/MainViewModel'
+import { MainViewModel } from '../viewmodel/MainViewModel'
 import { Artical } from '../views/Article'
 import { Project } from '../views/Project'
 import { WebDetail } from './WebDetail'

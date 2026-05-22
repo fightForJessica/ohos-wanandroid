@@ -5,9 +5,8 @@ import { MainResposity } from "../resposity/MainResposity";
 import ListDataSource from "../utils/ListDataSource";
 import Logger from "../utils/Logger";
 
-
 @Observed
-export default class MainViewModel {
+export class MainViewModel {
 
   private resposity = new MainResposity()
 

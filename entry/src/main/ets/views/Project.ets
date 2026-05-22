@@ -1,4 +1,4 @@
-import MainViewModel from "../viewmodel/MainViewModel"
+import { MainViewModel } from "../viewmodel/MainViewModel"
 
 
 @Component
