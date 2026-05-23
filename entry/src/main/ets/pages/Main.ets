@@ -30,7 +30,7 @@ struct Main {
 
   aboutToAppear(): void {
     this.eventHub?.on(OPEN_WEB_DETAIL, (url?: string) => {
-      Logger.i("open-web-detail, url is: ".concat(url ?? "null"))
+      Logger.i(`open-web-detail, url is: ${url ?? "null"}`)
       if (url == null || url.length == 0) {
         Logger.e("open-web-detail, url is invalid.")
         return

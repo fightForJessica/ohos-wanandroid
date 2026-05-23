@@ -1,9 +1,9 @@
-import { ArticalDetail, ArticalTag } from "../model/ArticalData"
-import { BannerData } from "../model/BannerData"
+import { ArticalDetail, ArticalTag } from "../model/mainpage/ArticalData"
+import { BannerData } from "../model/mainpage/BannerData"
 import { OPEN_WEB_DETAIL } from "../pages/Main"
 import Logger from "../utils/Logger"
 import { MainViewModel } from "../viewmodel/MainViewModel"
-import { ListBottom } from "./ListBottom"
+import { LoadingView } from "./LoadingView"
 
 @Component
 export struct Artical {
@@ -38,7 +38,7 @@ export struct Artical {
 
       // 底部加载更多
       ListItem() {
-        ListBottom({
+        LoadingView({
           loadingState: this.viewModel.articalLoadingState,
           onErrorClick: () => {
             Logger.i("main-artical-list-bottom, error reload")
@@ -119,7 +119,10 @@ struct BannerItem {
 
 @Component
 struct ArticleItem {
+
+  @Prop
   articalDetail: ArticalDetail = new ArticalDetail()
+
   index: number = 0
 
   private eventHub = this.getUIContext().getHostContext()?.eventHub

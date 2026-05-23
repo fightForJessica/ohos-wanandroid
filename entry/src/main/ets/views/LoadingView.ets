@@ -1,13 +1,16 @@
-import { LoadingState } from '../model/LoadingState'
+import { LoadingState } from '../model/mainpage/LoadingState'
 
 @Component
-export struct ListBottom {
+export struct LoadingView {
 
   @Prop
   @Watch("onLoadingStateChange")
   loadingState: LoadingState = LoadingState.NONE
 
-  @State contentString: Resource | null = null
+  @State
+  private contentString: Resource | null = null
+
+  fontSize: number = 14
 
   onErrorClick?: () => void
 
@@ -44,7 +47,7 @@ export struct ListBottom {
     Column() {
       if (this.contentString != null) {
         Text(this.contentString)
-          .fontSize(14)
+          .fontSize(this.fontSize)
           .fontColor($r("app.color.second_text"))
           .textAlign(TextAlign.Center)
           .width("100%")
@@ -56,7 +59,7 @@ export struct ListBottom {
           })
       }
     }
-    .width("100%")
+    .align(Alignment.Center)
   }
 
 }
